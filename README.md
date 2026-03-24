@@ -11,7 +11,7 @@ yarn add @sourceacademy/autocomplete-plugin@github:source-academy/autocomplete-p
 Then, directly import them from your code
 
 ```ts
-import { BaseAutoCompleteWebPlugin } from '@source-academy/autocomplete-plugin';
+import { BaseAutoCompleteWebPlugin } from '@sourceacademy/autocomplete-plugin';
 
 export class AutoCompletePlugin extends BaseAutoCompleteWebPlugin {
     (...)
