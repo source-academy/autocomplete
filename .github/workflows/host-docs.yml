@@ -38,7 +38,7 @@ jobs:
   deploy:
     needs: build
 
-    name: Deploy runner
+    name: Deploy documentation to GitHub Pages
 
     permissions:
       pages: write
