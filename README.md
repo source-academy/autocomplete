@@ -5,13 +5,13 @@
 For most circumstances, using the package directly would be fine
 
 ```bash
-yarn add @sourceacademy/autocomplete-plugin@github:source-academy/autocomplete-plugin#0.0.1
+yarn add @sourceacademy/autocomplete@github:source-academy/autocomplete#0.0.1
 ```
 
 Then, directly import them from your code
 
 ```ts
-import { BaseAutoCompleteWebPlugin } from '@sourceacademy/autocomplete-plugin';
+import { BaseAutoCompleteWebPlugin } from '@sourceacademy/autocomplete';
 
 export class AutoCompletePlugin extends BaseAutoCompleteWebPlugin {
     (...)
@@ -21,8 +21,8 @@ export class AutoCompletePlugin extends BaseAutoCompleteWebPlugin {
 If you need to set up a development build, clone the repository
 
 ```bash
-git clone https://github.com/source-academy/autocomplete-plugin
-cd autocomplete-plugin
+git clone https://github.com/source-academy/autocomplete
+cd autocomplete
 ```
 
 Run `yarn build` (or `yarn watch` for development, where it creates incremental builds). If there are no problems, the files `dist/index.mjs` and `dist/index.cjs` will be generated.
@@ -31,7 +31,7 @@ This is the file that will be used to run the plugin on the host (the frontend) 
 To use the new package in another project, go to the project directory, then use
 
 ```bash
-yarn link path/to/autocomplete-plugin
+yarn link path/to/autocomplete
 ```
 
 ## Contents of this package

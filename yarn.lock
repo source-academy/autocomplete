@@ -1255,6 +1255,30 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@sourceacademy/autocomplete@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@sourceacademy/autocomplete@workspace:."
+  dependencies:
+    "@rollup/plugin-node-resolve": "npm:^16.0.3"
+    "@rollup/plugin-terser": "npm:^1.0.0"
+    "@rollup/plugin-typescript": "npm:^12.3.0"
+    "@sourceacademy/conductor": "npm:^0.3.0"
+    "@types/jest": "npm:^30.0.0"
+    eslint: "npm:^10.0.3"
+    eslint-config-prettier: "npm:^10.1.8"
+    jest: "npm:^30.3.0"
+    prettier: "npm:^3.8.1"
+    rollup: "npm:^4.60.0"
+    ts-jest: "npm:^29.4.6"
+    tslib: "npm:^2.8.1"
+    typedoc: "npm:^0.28.18"
+    typescript: "npm:^5.9.3"
+    typescript-eslint: "npm:^8.57.1"
+  peerDependencies:
+    "@sourceacademy/conductor": ">=0.3.0"
+  languageName: unknown
+  linkType: soft
+
 "@sourceacademy/conductor@npm:^0.3.0":
   version: 0.3.0
   resolution: "@sourceacademy/conductor@npm:0.3.0"
@@ -1815,30 +1839,6 @@ __metadata:
   checksum: 10c0/c5640c2d89045371c7cedd6a70212a04e360fd34d6edeae32f6952c63949e3525ea77dbec0289d8213a99bbaeab5abfa860b5c12cf88a2e6cf8106e90dd27a7e
   languageName: node
   linkType: hard
-
-"autocomplete-plugin@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "autocomplete-plugin@workspace:."
-  dependencies:
-    "@rollup/plugin-node-resolve": "npm:^16.0.3"
-    "@rollup/plugin-terser": "npm:^1.0.0"
-    "@rollup/plugin-typescript": "npm:^12.3.0"
-    "@sourceacademy/conductor": "npm:^0.3.0"
-    "@types/jest": "npm:^30.0.0"
-    eslint: "npm:^10.0.3"
-    eslint-config-prettier: "npm:^10.1.8"
-    jest: "npm:^30.3.0"
-    prettier: "npm:^3.8.1"
-    rollup: "npm:^4.60.0"
-    ts-jest: "npm:^29.4.6"
-    tslib: "npm:^2.8.1"
-    typedoc: "npm:^0.28.18"
-    typescript: "npm:^5.9.3"
-    typescript-eslint: "npm:^8.57.1"
-  peerDependencies:
-    "@sourceacademy/conductor": ">=0.3.0"
-  languageName: unknown
-  linkType: soft
 
 "babel-jest@npm:30.3.0":
   version: 30.3.0
