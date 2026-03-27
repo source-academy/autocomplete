@@ -1,6 +1,6 @@
 import { IChannel, IConduit, IPlugin } from "@sourceacademy/conductor/conduit";
 import { AUTOCOMPLETE_CHANNEL_ID, SYNTAX_CHANNEL_ID, WEB_PLUGIN_ID } from "./constants";
-import type { AutoCompleteEntry, AutoCompleteMessage } from "./types/autocomplete";
+import type { AutoCompleteMessage, AutoCompleteResponse } from "./types/autocomplete";
 import type { SyntaxHighlightMessage, SyntaxHighlightData } from "./types/syntax";
 
 export abstract class BaseAutoCompleteWebPlugin implements IPlugin {
@@ -15,9 +15,28 @@ export abstract class BaseAutoCompleteWebPlugin implements IPlugin {
    * @param code The current code in the editor.
    * @param row The current row of the cursor in the editor (1-indexed).
    * @param column The current column of the cursor in the editor (1-indexed).
-   * @returns A list of autocomplete entries relevant to the current cursor position in the code.
+   * @param callback The callback function to handle the autocomplete suggestions received from the runner plugin.
    */
-  abstract autocomplete(code: string, row: number, column: number): AutoCompleteEntry[];
+  autocomplete(
+    code: string,
+    row: number,
+    column: number,
+    callback: (suggestions: AutoCompleteResponse) => void,
+  ) {
+    const handler = (message: AutoCompleteMessage) => {
+      if (message.type === "response") {
+        this.__autoCompleteChannel.unsubscribe(handler);
+        callback(message);
+      }
+    };
+    this.__autoCompleteChannel.subscribe(handler);
+    this.__autoCompleteChannel.send({
+      type: "request",
+      code,
+      row,
+      column,
+    });
+  }
 
   /**
    * The `loadMode` method is called when the web plugin receives the syntax highlighting data from the runner plugin.
