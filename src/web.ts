@@ -16,13 +16,14 @@ export abstract class BaseAutoCompleteWebPlugin implements IPlugin {
    * @param row The current row of the cursor in the editor (1-indexed).
    * @param column The current column of the cursor in the editor (1-indexed).
    * @param callback The callback function to handle the autocomplete suggestions received from the runner plugin.
+   * @returns A function to unsubscribe from the autocomplete response channel, allowing for cleanup of event listeners when they are no longer needed.
    */
   autocomplete(
     code: string,
     row: number,
     column: number,
     callback: (suggestions: AutoCompleteResponse) => void,
-  ) {
+  ): () => void {
     const handler = (message: AutoCompleteMessage) => {
       if (message.type === "response") {
         this.__autoCompleteChannel.unsubscribe(handler);
@@ -36,6 +37,7 @@ export abstract class BaseAutoCompleteWebPlugin implements IPlugin {
       row,
       column,
     });
+    return () => this.__autoCompleteChannel.unsubscribe(handler);
   }
 
   /**
