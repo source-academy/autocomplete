@@ -27,8 +27,6 @@ jobs:
       - run: yarn run build
       - run: yarn run format:ci
       - run: yarn run lint
-      - run: yarn run test-coverage
-      - name: Coveralls
-        uses: coverallsapp/github-action@v2
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+      # There are no tests yet, and jest exits with 1 when it finds none. When tests are added, run
+      # `yarn run test-coverage` here again, followed by the Coveralls upload.
+      - run: yarn run test --passWithNoTests
